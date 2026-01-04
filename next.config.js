@@ -50,6 +50,11 @@ const nextConfig = {
   }
 }
 
+const allowed = [
+  "https://kingermayank.com",   // <- your Framer custom domain
+  "https://*.framer.app",             // <- optional for testing / preview
+].join(" ");
+
 const protectedRoutes = {
   '/src/app/casestudydirectexpress/page': true
 };
