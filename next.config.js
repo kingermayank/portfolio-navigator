@@ -59,4 +59,30 @@ const protectedRoutes = {
   '/src/app/casestudydirectexpress/page': true
 };
 
+// next.config.js
+const frameAncestors = [
+  "https://framer.com",       // Framer editor
+  "https://*.framer.app",  
+  "https://kingermayank.com",    // Framer hosted sites / previews
+  "https://*.framer.website", // sometimes used by Framer
+  // "https://YOURCUSTOMDOMAIN.com", // add if you have one
+].join(" ");
+
+module.exports = {
+  async headers() {
+    return [
+      {
+        source: "/(.*)",
+        headers: [
+          {
+            key: "Content-Security-Policy",
+            value: `frame-ancestors ${frameAncestors};`,
+          },
+        ],
+      },
+    ];
+  },
+};
+
+
 module.exports = nextConfig
