@@ -2,11 +2,14 @@
 
 // Allowed domains for iframing
 const frameAncestors = [
+  "'self'",
   "https://framer.com",       // Framer editor
   "https://*.framer.app",  
   "https://www.framer.com",  
+  "https://www.kingermayank.com", 
   "https://*.framer.com",  
-  "https://kingermayank.com",    // Framer hosted sites / previews
+  "https://kingermayank.com",   
+  "https://*.framerusercontent.com", // Framer hosted sites / previews
   "https://*.framer.website", // sometimes used by Framer
   // "https://YOURCUSTOMDOMAIN.com", // add if you have one
 ].join(" ");
