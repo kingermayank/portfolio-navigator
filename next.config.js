@@ -4,6 +4,8 @@
 const frameAncestors = [
   "https://framer.com",       // Framer editor
   "https://*.framer.app",  
+  "https://www.framer.com",  
+  "https://*.framer.com",  
   "https://kingermayank.com",    // Framer hosted sites / previews
   "https://*.framer.website", // sometimes used by Framer
   // "https://YOURCUSTOMDOMAIN.com", // add if you have one
