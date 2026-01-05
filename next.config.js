@@ -3,16 +3,25 @@
 // Allowed domains for iframing
 const frameAncestors = [
   "'self'",
-  "https://kingermayank.com",
-  "https://www.kingermayank.com",
-
-  // Framer
-  "https://framer.com",
-  "https://www.framer.com",
-  "https://*.framer.com",
-  "https://*.framer.app",
-  "https://*.framer.website",
-  "https://*.framerusercontent.com",
+  
+   // Your production site (parent where iframe lives)
+   "https://kingermayank.com",
+   "https://www.kingermayank.com",
+ 
+   // Framer editor + app shells
+   "https://framer.com",
+   "https://www.framer.com",
+   "https://*.framer.com",
+   "https://*.framer.app",
+ 
+   // Framer published domains (IMPORTANT: include bare + www + wildcard)
+   "https://framer.website",
+   "https://www.framer.website",
+   "https://*.framer.website",
+ 
+   // Framer asset/content hosting (sometimes involved in previews)
+   "https://framerusercontent.com",
+   "https://*.framerusercontent.com",
 
   // CodePen (for testing)
   "https://codepen.io",
