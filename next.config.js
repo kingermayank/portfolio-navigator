@@ -3,15 +3,20 @@
 // Allowed domains for iframing
 const frameAncestors = [
   "'self'",
-  "https://framer.com",       // Framer editor
-  "https://*.framer.app",  
-  "https://www.framer.com",  
-  "https://www.kingermayank.com", 
-  "https://*.framer.com",  
-  "https://kingermayank.com",   
-  "https://*.framerusercontent.com", // Framer hosted sites / previews
-  "https://*.framer.website", // sometimes used by Framer
-  // "https://YOURCUSTOMDOMAIN.com", // add if you have one
+  "https://kingermayank.com",
+  "https://www.kingermayank.com",
+
+  // Framer
+  "https://framer.com",
+  "https://www.framer.com",
+  "https://*.framer.com",
+  "https://*.framer.app",
+  "https://*.framer.website",
+  "https://*.framerusercontent.com",
+
+  // CodePen (for testing)
+  "https://codepen.io",
+  "https://cdpn.io",
 ].join(" ");
 
 const nextConfig = {
