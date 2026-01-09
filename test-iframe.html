@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Iframe Test</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            color: white;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+
+        .info {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .info p {
+            margin: 5px 0;
+            color: #333;
+        }
+
+        .info code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .iframe-wrapper {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .iframe-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 75%; /* 4:3 aspect ratio - adjust as needed */
+            height: 0;
+            overflow: hidden;
+        }
+
+        .iframe-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Alternative: Fixed height layout */
+        .iframe-container-fixed {
+            width: 100%;
+            height: 800px;
+        }
+
+        .iframe-container-fixed iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .toggle-btn {
+            background: white;
+            color: #667eea;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            margin: 10px auto;
+            display: block;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .toggle-btn:hover {
+            background: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 Portfolio Navigator - Iframe Test</h1>
+        
+        <div class="info">
+            <p><strong>Instructions:</strong></p>
+            <p>1. Make sure your portfolio is running on <code>http://localhost:3000</code></p>
+            <p>2. Open this HTML file in a browser (can be on any port or file://)</p>
+            <p>3. The iframe below should display your portfolio website</p>
+            <p>4. Click the button below to toggle between responsive and fixed height layouts</p>
+        </div>
+
+        <button class="toggle-btn" onclick="toggleLayout()">
+            Toggle Layout (Current: <span id="layout-type">Responsive</span>)
+        </button>
+
+        <div class="iframe-wrapper">
+            <div class="iframe-container" id="iframe-container">
+                <iframe 
+                    src="http://localhost:3000" 
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    title="Portfolio Navigator"
+                    id="portfolio-iframe"
+                ></iframe>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let isResponsive = true;
+
+        function toggleLayout() {
+            const container = document.getElementById('iframe-container');
+            const layoutType = document.getElementById('layout-type');
+            
+            if (isResponsive) {
+                container.className = 'iframe-container-fixed';
+                layoutType.textContent = 'Fixed Height';
+            } else {
+                container.className = 'iframe-container';
+                layoutType.textContent = 'Responsive';
+            }
+            
+            isResponsive = !isResponsive;
+        }
+
+        // Log iframe load status
+        const iframe = document.getElementById('portfolio-iframe');
+        iframe.onload = function() {
+            console.log('✅ Portfolio iframe loaded successfully!');
+        };
+        iframe.onerror = function() {
+            console.error('❌ Failed to load portfolio iframe');
+        };
+    </script>
+</body>
+</html>
